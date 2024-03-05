@@ -9482,6 +9482,8 @@ export class Niivue {
           const sX = volScale[0] * ltwh[4]
           const sY = volScale[1] * ltwh[4]
           const sZ = volScale[2] * ltwh[4]
+
+          log.info('drawSceneCore: volScale:', volScale)
           // draw top-left
           this.draw2Dor3D([ltwh[0], ltwh[1], sX, sZ], this.opts.multiplanarGridLayout[0], isDraw3D)
           // draw top-right
@@ -9489,7 +9491,11 @@ export class Niivue {
           // draw bottom-left
           this.draw2Dor3D([ltwh[0], ltwh[1] + sZ + pad, sX, sY], this.opts.multiplanarGridLayout[2], isDraw3D)
           // draw bottom-right
-          this.draw2Dor3D([ltwh[0] + sX + pad, ltwh[1] + sZ + pad, sY, sY], this.opts.multiplanarGridLayout[3], isDraw3D)
+          this.draw2Dor3D(
+            [ltwh[0] + sX + pad, ltwh[1] + sZ + pad, sY, sY],
+            this.opts.multiplanarGridLayout[3],
+            isDraw3D
+          )
         }
       }
     }
