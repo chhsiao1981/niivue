@@ -111,6 +111,7 @@ type NVConfigOptions = {
   legendTextColor: number[]
   multiplanarLayout: MULTIPLANAR_TYPE
   renderOverlayBlend: number
+  multiplanarGridLayout: SLICE_TYPE[]
 }
 
 export const DEFAULT_OPTIONS: NVConfigOptions = {
@@ -169,7 +170,8 @@ export const DEFAULT_OPTIONS: NVConfigOptions = {
   legendBackgroundColor: [0.3, 0.3, 0.3, 0.5],
   legendTextColor: [1.0, 1.0, 1.0, 1.0],
   multiplanarLayout: MULTIPLANAR_TYPE.AUTO,
-  renderOverlayBlend: 1.0
+  renderOverlayBlend: 1.0,
+  multiplanarGridLayout: [SLICE_TYPE.CORONAL, SLICE_TYPE.SAGITTAL, SLICE_TYPE.AXIAL, SLICE_TYPE.RENDER],
 }
 
 type SceneData = {
@@ -261,8 +263,8 @@ export class NVDocument {
 
   constructor() {
     this.scene = {
-      onAzimuthElevationChange: (): void => {},
-      onZoom3DChange: (): void => {},
+      onAzimuthElevationChange: (): void => { },
+      onZoom3DChange: (): void => { },
       sceneData: {
         azimuth: 110,
         elevation: 10,
